@@ -1,0 +1,78 @@
+module.exports = {
+    "success": true,
+    "data": [
+        {
+            "id": 4,
+            "url": "https://res.cloudinary.com/dr7xnnq21/image/upload/v1603091392/WhatsAppStory_100aa7de-7_ymtuef.jpg",
+            "status": 0,
+            "created_at": "2020-08-20T07:53:06.000000Z",
+            "updated_at": "2020-08-20T07:53:06.000000Z",
+            "deleted_at": null,
+        },
+        {
+            "id": 5,
+            "url": "https://res.cloudinary.com/dr7xnnq21/image/upload/v1603040587/endsars13_lvmvnf.jpg",
+            "status": 0,
+            "created_at": "2020-08-20T07:53:41.000000Z",
+            "updated_at": "2020-08-20T07:53:41.000000Z",
+            "deleted_at": null,
+        },
+        {
+            "id": 6,
+            "url": "https://res.cloudinary.com/dr7xnnq21/image/upload/v1603042254/roadrars_qpp55c.jpg",
+            "status": 0,
+            "created_at": "2020-09-15T10:16:04.000000Z",
+            "updated_at": "2020-09-15T10:16:04.000000Z",
+            "deleted_at": null,
+        },
+        {
+            "id": 7,
+            "url": "https://res.cloudinary.com/dr7xnnq21/image/upload/v1603041956/jimohsars_hmajt0.jpg",
+            "status": 0,
+            "created_at": "2020-09-15T10:16:59.000000Z",
+            "updated_at": "2020-09-15T10:16:59.000000Z",
+            "deleted_at": null,
+        },
+        {
+            "id": 8,
+            "url": "https://res.cloudinary.com/dr7xnnq21/image/upload/v1603041691/endsars_zxgbcm.jpg",
+            "status": 0,
+            "created_at": "2020-09-15T10:18:46.000000Z",
+            "updated_at": "2020-09-15T10:18:46.000000Z",
+            "deleted_at": null,
+        },
+        {
+            "id": 9,
+            "url": "https://res.cloudinary.com/dr7xnnq21/image/upload/v1603041140/sars2_m2nlza.jpg",
+            "status": 0,
+            "created_at": "2020-09-15T10:18:46.000000Z",
+            "updated_at": "2020-09-15T10:18:46.000000Z",
+            "deleted_at": null,
+        },
+        {
+            "id": 10,
+            "url": "https://res.cloudinary.com/dr7xnnq21/image/upload/v1603041291/sar3_lilrtd.jpg",
+            "status": 0,
+            "created_at": "2020-09-15T10:18:46.000000Z",
+            "updated_at": "2020-09-15T10:18:46.000000Z",
+            "deleted_at": null,
+        },
+        {
+            "id": 11,
+            "url": "https://res.cloudinary.com/dr7xnnq21/image/upload/v1603042272/Aisha-Yesufu_x40fgq.jpg",
+            "status": 0,
+            "created_at": "2020-09-15T10:18:46.000000Z",
+            "updated_at": "2020-09-15T10:18:46.000000Z",
+            "deleted_at": null,
+        },
+        {
+            "id": 12,
+            "url": "https://res.cloudinary.com/dr7xnnq21/image/upload/v1603091392/WhatsAppStory_100aa7de-7_ymtuef.jpg",
+            "status": 0,
+            "created_at": "2020-09-15T10:18:46.000000Z",
+            "updated_at": "2020-09-15T10:18:46.000000Z",
+            "deleted_at": null,
+        }
+    ],
+    "message": "success"
+}
