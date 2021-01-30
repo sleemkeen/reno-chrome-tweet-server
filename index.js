@@ -78,7 +78,7 @@ app.use(session(sessionOptions));
 
 
 app.get('/', function(req, res){
-  res.json({ message: 'Api for reno tweets 🔥🔥🔥🔥🔥'});
+  res.json({ message: 'Api for alpha and jam 🔥🔥🔥🔥🔥'});
 });
 
 app.get('/bg', function(req, res){
@@ -181,6 +181,117 @@ app.get('/statuses/user_timeline', function(req, res) {
       console.log(config.test);
       res.json(data);
   });
+});
+
+
+app.get('/statuses/hashtag', function(req, res) {
+  let newArrayData = [];
+  var T = new Twit({
+    consumer_key: config.TWITTER_CONSUMER_KEY,
+    consumer_secret: config.TWITTER_CONSUMER_SECRET,
+    access_token: config.ACCESS_TOKEN, // testing hardcoded access_tokens
+    access_token_secret: config.ACCESS_TOKEN_SECRET, // testing hardcoded access_tokens
+    timeout_ms: 60*1000,  // optional HTTP request timeout to apply to all requests.
+    strictSSL: true,     // optional - requires SSL certificates to be valid.
+  });
+
+  T.get('search/tweets', { 
+
+  q: '#testsamproject since:2020-10-11', 
+  count: req.query.count || 50, 
+  exclude_replies: true, 
+  include_rts: true,
+  screen_name: req.query.screen_name,
+  tweet_mode: 'extended',
+  }, function(err, data, response) {
+
+    var d =  data.statuses;
+
+    for (let index = 0; index < d.length; index++) {
+      const elem = d[index];
+      if(elem.user.id == 213170155){
+        newArrayData.push(elem);
+      } 
+      // console.log(elem);
+    }
+    res.json(newArrayData);
+  })
+
+  
+});
+
+
+app.get('/statuses/safaricom', function(req, res) {
+  let newArrayData = [];
+  var T = new Twit({
+    consumer_key: config.TWITTER_CONSUMER_KEY,
+    consumer_secret: config.TWITTER_CONSUMER_SECRET,
+    access_token: config.ACCESS_TOKEN, // testing hardcoded access_tokens
+    access_token_secret: config.ACCESS_TOKEN_SECRET, // testing hardcoded access_tokens
+    timeout_ms: 60*1000,  // optional HTTP request timeout to apply to all requests.
+    strictSSL: true,     // optional - requires SSL certificates to be valid.
+  });
+
+  T.get('search/tweets', { 
+
+  q: '#safaricom since:2020-10-11', 
+  count: req.query.count || 50, 
+  exclude_replies: true, 
+  include_rts: true,
+  screen_name: req.query.screen_name,
+  tweet_mode: 'extended',
+  }, function(err, data, response) {
+
+    var d =  data.statuses;
+
+    for (let index = 0; index < d.length; index++) {
+      const elem = d[index];
+      if(elem.user.id == 213170155){
+        newArrayData.push(elem);
+      } 
+      // console.log(elem);
+    }
+    res.json(newArrayData);
+  })
+
+  
+});
+
+
+app.get('/statuses/safaricom-upendo', function(req, res) {
+  let newArrayData = [];
+  var T = new Twit({
+    consumer_key: config.TWITTER_CONSUMER_KEY,
+    consumer_secret: config.TWITTER_CONSUMER_SECRET,
+    access_token: config.ACCESS_TOKEN, // testing hardcoded access_tokens
+    access_token_secret: config.ACCESS_TOKEN_SECRET, // testing hardcoded access_tokens
+    timeout_ms: 60*1000,  // optional HTTP request timeout to apply to all requests.
+    strictSSL: true,     // optional - requires SSL certificates to be valid.
+  });
+
+  T.get('search/tweets', { 
+
+  q: '#safaricomUpendo since:2020-10-11', 
+  count: req.query.count || 50, 
+  exclude_replies: true, 
+  include_rts: true,
+  screen_name: req.query.screen_name,
+  tweet_mode: 'extended',
+  }, function(err, data, response) {
+
+    var d =  data.statuses;
+
+    for (let index = 0; index < d.length; index++) {
+      const elem = d[index];
+      if(elem.user.id == 213170155){
+        newArrayData.push(elem);
+      } 
+      // console.log(elem);
+    }
+    res.json(newArrayData);
+  })
+
+  
 });
 
 
