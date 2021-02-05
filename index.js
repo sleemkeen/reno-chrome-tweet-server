@@ -26,6 +26,7 @@ var oauth = require('oauth');
 var Twit = require('twit');
 
 
+
 var app = express();
 
 var sessionOptions = {
@@ -295,6 +296,43 @@ app.get('/statuses/safaricom-upendo', function(req, res) {
 });
 
 
+app.get('/statuses/traffic', function(req, res) {
+  let newArrayData = [];
+  var T = new Twit({
+    consumer_key: config.TWITTER_CONSUMER_KEY,
+    consumer_secret: config.TWITTER_CONSUMER_SECRET,
+    access_token: config.ACCESS_TOKEN, // testing hardcoded access_tokens
+    access_token_secret: config.ACCESS_TOKEN_SECRET, // testing hardcoded access_tokens
+    timeout_ms: 60*1000,  // optional HTTP request timeout to apply to all requests.
+    strictSSL: true,     // optional - requires SSL certificates to be valid.
+  });
+
+  T.get('search/tweets', { 
+
+  q: '#kuratrafficupdate since:2020-10-11', 
+  count: req.query.count || 50, 
+  exclude_replies: true, 
+  include_rts: true,
+  screen_name: req.query.screen_name,
+  tweet_mode: 'extended',
+  }, function(err, data, response) {
+
+    var d =  data.statuses;
+
+    for (let index = 0; index < d.length; index++) {
+      const elem = d[index];
+      if(elem.user.id == 213170155){
+        newArrayData.push(elem);
+      } 
+      // console.log(elem);
+    }
+    res.json(newArrayData);
+  })
+
+  
+});
+
+
 
 // If that above routes didnt work, we 404 them and forward to error handler
 app.use(notFound);
@@ -309,4 +347,22 @@ if (app.get('env') === 'development') {
 app.use(productionErrors);
 
 
-app.listen(parseInt(config.PORT || 80));
+var server  =  app.listen(parseInt(config.PORT || 80));
+
+
+var io = require('socket.io')(server,{transports: ['websocket'] },{ cors: {
+  origin: "*",
+  credentials: true
+}});
+
+io.on('connection', function(socket) {
+  socket.on('traffic.socket', function(message) {
+      console.log(message);
+      io.emit('traffic.socket', message);
+  });
+
+  socket.on('disconnect', function() {
+      io.emit('traffic.socket', 'User has disconnected.');
+  });
+
+});
